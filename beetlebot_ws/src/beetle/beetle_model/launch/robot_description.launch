@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find beetle_model)/urdf/beetle.xacro'" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+  <node pkg="rviz" type="rviz" name="rviz" required="true"
+    args="-d $(find beetle_model)/rviz/view_robot.rviz"/>
+  <node pkg="beetle_control" type="beetle_control.py" name="beetle_control"  output="screen">
+  </node>
+  
+<!--
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
+    <param name="use_gui" value="True"/>
+  </node>
+-->
+</launch>

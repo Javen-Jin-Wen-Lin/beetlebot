@@ -1,0 +1,5 @@
+cd ~/beetlebot_ws/
+catkin_make
+
+source devel/setup.bash
+roslaunch beetle_model world.launch
